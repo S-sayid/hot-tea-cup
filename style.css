@@ -1,0 +1,133 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.main-bd{
+	width: 100vw;
+	height: 100vh;
+	display: grid;
+	place-items: center;
+	background-color: gray;
+}
+.container{
+	margin-top: 100px;
+}
+.all-content{
+	position: relative;
+}
+.cup{
+	width: 280px;
+	height: 300px;
+	border-radius: 0 0 45%  45% ;
+	background: linear-gradient(to right, #f5f4f2 ,#d4d3d2);
+	position: relative;
+}
+.c-top{
+	width: 100%;	
+	height: 60px;
+	position: absolute;
+	top: -30px;
+	background: linear-gradient(to right, #f5f4f2 ,#d4d3d2);
+	border-radius: 100%;
+}
+.c-inner{
+	position: absolute;
+	left: 10px;
+	top: 5px;
+	background: linear-gradient(to right, #d4d3d2, #f5f4f2);
+	width: calc(100% - 20px);
+	height: 50px;
+	border-radius: 100%;
+	overflow: hidden;
+}
+.tea{
+	top: 20px;
+	width: 100%;
+	height: 100%;
+	background: #bf8500;
+	position: absolute;
+	border-radius: 100%;
+}
+.handle{
+	position: absolute;
+	top: 5px;
+	left: calc(100% - 82px);
+	transform: rotate(40deg);
+	width: 160px;
+	height: 180px;
+	border: 25px solid #d4d3d2;
+	border-radius: 50%;
+	border-left: 25px solid transparent;
+	border-bottom: 25px solid transparent;
+}
+
+/*  plate */
+.plate{
+	width: 500px;
+	height: 250px;
+	background: linear-gradient(to right, #f5f4f2 ,#d4d3d2);
+	position: absolute;
+	left: 50%;
+	top: 0;
+	transform: translate(-50%, 50%);
+	border-radius: 50%;
+}
+.plate::before{
+	content: '';
+	position: absolute;
+	width: 480px;
+	top: 10px;
+	left: 10px;
+	height: 230px;
+	background: linear-gradient(to right, #d4d3d2 ,#f5f4f2);
+	border-radius: 50%;
+}
+.plate::after{
+	content: '';
+	position: absolute;
+	inset: 30px;
+	background: radial-gradient(rgba(0, 0, 0, .2) 25%, transparent, transparent);
+	border-radius: 50%;
+}
+
+/* fog */
+.fog{
+	display: flex;
+	margin: 0 10px;
+	z-index: 999;
+	position: relative;
+}
+.fog span{
+	height: 130px;
+	min-width: 7px;
+	background: #fff;
+	margin: 0 3px;
+	display: inline-block;
+	bottom: 50px;
+	position: relative;
+	border-radius: 50%;
+	animation-name: fog;
+	animation-duration: 4s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-delay: calc(var(--i) * .5s);
+	opacity: 0;
+	-webkit-filter: blur(8px);
+}
+
+@keyframes fog{
+	0%{
+		transform: translateY(0);
+	}20%{
+		opacity: 1;
+	}
+	50%{
+		transform: translateY(-100px) scaleX(5);
+	}90%{
+		opacity: 0;
+	}
+	100%{
+		transform: translateY(-200px) scaleX(10);
+	}
+}
